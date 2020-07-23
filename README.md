@@ -11,6 +11,19 @@
 </h3>
 
 
+![Test build release](https://github.com/innovaccer/design-system/workflows/Test%20build%20release/badge.svg)
+![Pull request](https://github.com/innovaccer/design-system/workflows/Pull%20request/badge.svg)
+![GitHub](https://img.shields.io/github/license/innovaccer/design-system)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/innovaccer/design-system?include_prereleases)
+![GitHub Release Date](https://img.shields.io/github/release-date/innovaccer/design-system)
+![GitHub top language](https://img.shields.io/github/languages/top/innovaccer/design-system)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/innovaccer/design-system)
+![Snyk Vulnerabilities for npm scoped package](https://img.shields.io/snyk/vulnerabilities/npm/@innovaccer/design-system)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/innovaccer/design-system)
+![](https://badgen.net/bundlephobia/min/@innovaccer/design-system)
+![](https://badgen.net/bundlephobia/minzip/@innovaccer/design-system)
+![GitHub issues](https://img.shields.io/github/issues-raw/innovaccer/design-system)
+
 ## 🚀 Get Up and Running
 
 >💡 If your app runs on `Innovaccer UI engine` you don't need following two steps, please see *Using Components* section bellow.
