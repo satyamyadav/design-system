@@ -40,6 +40,12 @@ export const Backdrop: React.FC<BackdropProps> = props => {
   };
 
   useEffect(() => {
+    return () => {
+      enableBodyScroll();
+    };
+  });
+
+  useEffect(() => {
     if (props.open) {
       setBodyOverflow(document.body.style.overflow);
       disableBodyScroll();
