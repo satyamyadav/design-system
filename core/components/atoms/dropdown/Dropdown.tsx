@@ -191,6 +191,8 @@ interface SharedDropdownProps extends DropdownListProps, BaseProps {
    * Callback function called when dropdown is closed
    */
   onClose?: (selected: any[], name?: string | number) => void;
+
+  getOption: any
 }
 
 type SyncDropdownProps = SyncProps & SharedDropdownProps;

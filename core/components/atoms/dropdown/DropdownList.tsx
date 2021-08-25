@@ -141,6 +141,8 @@ export interface DropdownListProps extends ListProps {
    * </pre>
    */
   popoverOptions?: PopoverOptions;
+
+  getOption?: any
 }
 
 interface OptionsProps extends DropdownListProps, BaseProps {
@@ -207,6 +209,7 @@ const DropdownList = (props: OptionsProps) => {
     cancelOptions,
     toggleDropdown,
     className,
+    getOption,
   } = props;
 
   const baseProps = extractBaseProps(props);
@@ -453,20 +456,22 @@ const DropdownList = (props: OptionsProps) => {
     );
   };
 
-  const renderOptions = (item: OptionSchema, index: number) => {
+  const renderOptions = (item: OptionSchema, index: number, getOption: any) => {
     // const selectAllPresent = withCheckbox
     //   && remainingOptions === 0
     //   && searchTerm === ''
     //   && withSelectAll;
 
+    const optionData = getOption ? getOption(item, index) : item;
+
     const selectAllPresent = _isSelectAllPresent(searchTerm, remainingOptions, withSelectAll, withCheckbox);
 
     const active = selectAllPresent ? index + 1 === cursor : index === cursor;
-    const optionIsSelected = tempSelected.findIndex((option) => option.value === item.value) !== -1;
+    const optionIsSelected = tempSelected.findIndex((option) => option.value === optionData.value) !== -1;
 
     return (
       <Option
-        optionData={item}
+        optionData={optionData}
         truncateOption={truncateOption}
         selected={optionIsSelected}
         index={index}
@@ -511,7 +516,7 @@ const DropdownList = (props: OptionsProps) => {
       <div className={dropdownWrapperClass} style={dropdownStyle} ref={dropdownRef}>
         {selectAllPresent && renderSelectAll()}
         {selected.length > 0 && renderGroups(selectedSectionLabel, true)}
-        {selected.map((option, index) => renderOptions(option, index))}
+        {selected.map((option, index) => renderOptions(option, index, getOption))}
         {listOptions.map((option, index) => {
           const prevGroup =
             index > 0 ? listOptions[index - 1].group : selected.length ? selectedSectionLabel : undefined;
@@ -522,7 +527,7 @@ const DropdownList = (props: OptionsProps) => {
           return (
             <div className={getDropdownClass(updatedIndex, isGroup)} key={index}>
               {isGroup && currentGroup && renderGroups(currentGroup)}
-              {renderOptions(option, updatedIndex)}
+              {renderOptions(option, updatedIndex, getOption)}
             </div>
           );
         })}
