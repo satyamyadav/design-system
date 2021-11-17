@@ -7,6 +7,7 @@ import { Validators } from '@/utils/types';
 import { convertToDate, translateToString, compareDate, getDateInfo } from '../calendar/utility';
 import { Trigger } from './Trigger';
 import config from '../calendar/config';
+import { getTomorrowDate, get3DaysLaterDate, get1WeekLaterDate, get30DaysLaterDate } from './utilities';
 
 export type DatePickerProps = SharedProps & {
   /**
@@ -58,6 +59,10 @@ export type DatePickerProps = SharedProps & {
    * Close Popover on date selection
    */
   closeOnSelect: boolean;
+  /**
+   * Add or remove the select today's date chip from DatePicker Footer
+   */
+  showTodayChip?: boolean;
 };
 
 export interface DatePickerState {
@@ -182,6 +187,7 @@ export class DatePicker extends React.Component<DatePickerProps, DatePickerState
       onDateChange,
       closeOnSelect,
       size,
+      showTodayChip = true,
       ...rest
     } = this.props;
 
@@ -213,15 +219,17 @@ export class DatePicker extends React.Component<DatePickerProps, DatePickerState
           disabledAfter={dateDisabledAfter}
           onDateChange={this.onDateChangeHandler}
         />
-        <div className="d-flex justify-content-center pb-6" data-test="DesignSystem-Select--TodaysDate-wrapper">
-          <Chip
-            label={`Today, ${todayMonthAndDate}`}
-            name="chip"
-            type="action"
-            disabled={isTodayDisabled()}
-            onClick={() => this.onDateChangeHandler(new Date())}
-          />
-        </div>
+        {showTodayChip && !!showTodayChip && (
+          <div className="d-flex justify-content-center pb-6" data-test="DesignSystem-Select--TodaysDate-wrapper">
+            <Chip
+              label={`Today, ${todayMonthAndDate}`}
+              name="chip"
+              type="action"
+              disabled={isTodayDisabled()}
+              onClick={() => this.onDateChangeHandler(new Date())}
+            />
+          </div>
+        )}
       </div>
     );
   }
@@ -257,5 +265,12 @@ export class DatePicker extends React.Component<DatePickerProps, DatePickerState
     return this.renderCalendar();
   }
 }
+// @ts-ignore
+DatePicker.utils = {
+  getTomorrowDate,
+  get3DaysLaterDate,
+  get1WeekLaterDate,
+  get30DaysLaterDate,
+};
 
 export default DatePicker;
