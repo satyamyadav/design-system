@@ -80,8 +80,10 @@ const customCode = `() => {
   };
   return (
     <Card className="d-inline-flex" shadow="light">
+      
+      <DatePicker date={date} showTodayChip={false}>
       {renderChildren()}
-      <DatePicker date={date} showTodayChip={false}/>
+      </DatePicker>
     </Card>
   );
 };`;

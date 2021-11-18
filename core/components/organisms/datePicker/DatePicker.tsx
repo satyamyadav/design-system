@@ -63,6 +63,11 @@ export type DatePickerProps = SharedProps & {
    * Add or remove the select today's date chip from DatePicker Footer
    */
   showTodayChip?: boolean;
+
+  /**
+   * Element to be rendered inside Popover
+   */
+   children: React.ReactNode;
 };
 
 export interface DatePickerState {
@@ -188,6 +193,7 @@ export class DatePicker extends React.Component<DatePickerProps, DatePickerState
       closeOnSelect,
       size,
       showTodayChip = true,
+      children = <></>,
       ...rest
     } = this.props;
 
@@ -210,7 +216,8 @@ export class DatePicker extends React.Component<DatePickerProps, DatePickerState
       return !isTodayDateDisabled;
     };
     return (
-      <div>
+      <div className="d-flex">
+        {children}
         <Calendar
           {...rest}
           size={size}
