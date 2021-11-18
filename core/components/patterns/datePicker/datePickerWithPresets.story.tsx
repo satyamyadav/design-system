@@ -5,7 +5,8 @@ const customCode = `() => {
   const [date, setDate] = React.useState(new Date());
   const [selectedChip, setSelectedChip] = React.useState('today');
 
-  const renderChildren = () => {
+  const PresetPanel = ({ size }) => {
+    const classNames = size === 'small' ? 'd-block mb-4' : 'd-block mb-5';
     return (
       <div className="pt-6 px-5" style={{ borderRight: 'var(--border)', borderColor: 'var(--secondary-light)' }}>
         <div className="d-flex align-items-center justify-content-between">
@@ -18,7 +19,7 @@ const customCode = `() => {
             label="Today"
             clearButton={false}
             type="selection"
-            className="mb-5 d-block"
+            className={classNames}
             selected={selectedChip === 'today'}
             name="rangePicker"
             onClick={() => {
@@ -30,7 +31,7 @@ const customCode = `() => {
             label="Tomorrow"
             clearButton={false}
             type="selection"
-            className="mb-5 d-block"
+            className={classNames}
             selected={selectedChip === 'tomorrow'}
             name={'chip'}
             onClick={() => {
@@ -42,7 +43,7 @@ const customCode = `() => {
             label="3 Days later"
             clearButton={false}
             type="selection"
-            className="mb-5  d-block"
+            className={classNames}
             selected={selectedChip === '3DaysLlater'}
             name="rangePicker"
             onClick={() => {
@@ -54,7 +55,7 @@ const customCode = `() => {
             label="1 Week later"
             clearButton={false}
             type="selection"
-            className="mb-5  d-block"
+            className={classNames}
             selected={selectedChip === '1WeekLater'}
             name="rangePicker"
             onClick={() => {
@@ -66,7 +67,7 @@ const customCode = `() => {
             label="30 Days later"
             clearButton={false}
             type="selection"
-            className="mb-5  d-block"
+            className={classNames}
             selected={selectedChip === '30DaysLater'}
             name="rangePicker"
             onClick={() => {
@@ -78,13 +79,25 @@ const customCode = `() => {
       </div>
     );
   };
-  return (
-    <Card className="d-inline-flex" shadow="light">
-      
-      <DatePicker date={date} showTodayChip={false}>
-      {renderChildren()}
+
+  const DatePickerPreset = ({ size }) => {
+    return (
+      <DatePicker date={date} showTodayChip={false} size={size}>
+        <PresetPanel size={size} />
       </DatePicker>
-    </Card>
+    )
+  }
+
+  return (
+    <>
+      <Card className="d-inline-flex" shadow="light">
+        <DatePickerPreset />
+      </Card>
+
+      <Card className="d-inline-flex ml-5" shadow="light">
+        <DatePickerPreset size="small" />
+      </Card>
+    </>
   );
 };`;
 export const WithPresets = () => <></>;
