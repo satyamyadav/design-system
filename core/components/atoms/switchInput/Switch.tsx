@@ -89,6 +89,11 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>((props, re
     ['Switch-wrapper--checkedDisabled']: checked && disabled,
   });
 
+  const knobClasses = classNames({
+    ['Switch-knob']: true,
+    ['Switch-knob--checked']: checked,
+  });
+
   const onChangeHandler = (event: ChangeEvent | KeyboardEvent) => {
     if (event.type == 'change' || isSpaceKey(event as React.KeyboardEvent<HTMLElement>)) {
       if (checkedProp === undefined) setChecked(!checked);
@@ -111,7 +116,11 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>((props, re
         className="Switch-input"
         onKeyUp={onChangeHandler}
       />
-      <span className={SwitchWrapper} />
+      <span className={SwitchWrapper}>
+        <div className={knobClasses}>
+          <div className="Switch-wrapper-before"></div>
+        </div>
+      </span>
     </div>
   );
 });

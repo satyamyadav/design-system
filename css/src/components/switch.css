@@ -32,11 +32,12 @@
   display: flex;
   align-items: center;
   line-height: 100%;
-  padding: var(--spacing-s);
+  /* padding: var(--spacing-s); */
   top: 0;
   left: 0;
   width: 100%;
   background-color: var(--secondary-light);
+  transition: background 80ms ease;
 }
 
 .Switch-input:focus ~ .Switch-wrapper {
@@ -77,31 +78,40 @@
   border-radius: 38px;
 }
 
-.Switch-wrapper:before {
-  content: '';
+.Switch-wrapper-before {
   height: 100%;
-  width: 50%;
+  width: 100%;
   background-color: var(--shadow-0);
   box-shadow: 0 0 var(--spacing-xs) 0 var(--shadow-20);
   border-radius: 50%;
   box-sizing: border-box;
 }
 
-.Switch-wrapper--checked {
-  background-color: var(--primary);
+.Switch-knob {
+  padding: 2px;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  transition: all 80ms ease;
 }
 
-.Switch-wrapper--checked:before {
+.Switch-wrapper--checked {
+  background-color: var(--primary);
+  transition: background 80ms ease;
+}
+
+.Switch-knob--checked {
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
+  transition: all 80ms ease;
 }
 
 .Switch--disabled {
   pointer-events: none;
 }
 
-.Switch-wrapper--disabled:before {
+.Switch-wrapper--disabled-before {
   background-color: var(--secondary-lightest);
 }
 
