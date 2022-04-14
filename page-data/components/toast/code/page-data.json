@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-components-toast-code-mdx",
+    "path": "/components/toast/code/",
+    "result": {"pageContext":{"frontmatter":{"description":"components / toast / code","title":"components / toast / code"},"relativePagePath":"/components/toast/code.mdx","titleType":"page","MdxNode":{"id":"3f9a50be-39a1-5d43-8f06-9cd0c2427343","children":[],"parent":"aee015b9-4a86-582f-9b02-c1c9ff81e084","internal":{"content":"### Live Demo\n\n<Preview name='info-toast'/>\n\n<PreviewWithPropTable name='info-toast' />","type":"Mdx","contentDigest":"dbedca03dfc47bed207673a2f458ff76","owner":"gatsby-plugin-mdx","counter":1651},"frontmatter":{"description":"components / toast / code","title":"components / toast / code"},"exports":{},"rawBody":"### Live Demo\n\n<Preview name='info-toast'/>\n\n<PreviewWithPropTable name='info-toast' />","fileAbsolutePath":"/Users/I0202/dev/github/innovaccer/design-system/docs/src/pages/components/toast/code.mdx","__gatsby_resolved":{"frontmatter":{"title":"components / toast / code"}}}}},
+    "staticQueryHashes": ["1514734083","227138135","2319071508","2754858070","3390246842","345969789","3719803338"]}

@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-components-radio-code-mdx",
+    "path": "/components/radio/code/",
+    "result": {"pageContext":{"frontmatter":{"description":"components / radio / code","title":"components / radio / code"},"relativePagePath":"/components/radio/code.mdx","titleType":"page","MdxNode":{"id":"74a3a642-c502-5cd6-9b79-d992b0cfe4a7","children":[],"parent":"72d95a24-b945-5f96-aaed-68655862fd87","internal":{"content":"### Live Demo\n\n<Preview name='default-radio'/>\n\n<PreviewWithPropTable name='default-radio' />","type":"Mdx","contentDigest":"74fa2393ff7f7b51fc9829a2685aad6f","owner":"gatsby-plugin-mdx","counter":1676},"frontmatter":{"description":"components / radio / code","title":"components / radio / code"},"exports":{},"rawBody":"### Live Demo\n\n<Preview name='default-radio'/>\n\n<PreviewWithPropTable name='default-radio' />","fileAbsolutePath":"/Users/I0202/dev/github/innovaccer/design-system/docs/src/pages/components/radio/code.mdx","__gatsby_resolved":{"frontmatter":{"title":"components / radio / code"}}}}},
+    "staticQueryHashes": ["1514734083","227138135","2319071508","2754858070","3390246842","345969789","3719803338"]}

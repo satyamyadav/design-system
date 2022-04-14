@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-components-table-code-mdx",
+    "path": "/components/table/code/",
+    "result": {"pageContext":{"frontmatter":{"description":"components / table / code","title":"components / table / code"},"relativePagePath":"/components/table/code.mdx","titleType":"page","MdxNode":{"id":"e7bc7d4a-aaff-5229-a4ec-b444328b28d2","children":[],"parent":"2e6227ca-eb97-59e5-b3b2-4fba1b559fc7","internal":{"content":"### Live Demo\n\n<Preview name='table-async' />\n\n<PreviewWithPropTable name='table-async' />","type":"Mdx","contentDigest":"b21b00cae56fbf466c83ec3f9288f5c2","owner":"gatsby-plugin-mdx","counter":1657},"frontmatter":{"description":"components / table / code","title":"components / table / code"},"exports":{},"rawBody":"### Live Demo\n\n<Preview name='table-async' />\n\n<PreviewWithPropTable name='table-async' />","fileAbsolutePath":"/Users/I0202/dev/github/innovaccer/design-system/docs/src/pages/components/table/code.mdx","__gatsby_resolved":{"frontmatter":{"title":"components / table / code"}}}}},
+    "staticQueryHashes": ["1514734083","227138135","2319071508","2754858070","3390246842","345969789","3719803338"]}

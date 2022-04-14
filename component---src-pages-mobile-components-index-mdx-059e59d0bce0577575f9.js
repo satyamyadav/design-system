@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[8201],{53225:function(n,t,e){e.r(t),e.d(t,{_frontmatter:function(){return u},default:function(){return f}});var o=e(63366),c=(e(67294),e(64983)),r=e(64262),s=["components"],u={},a={_frontmatter:u},p=r.Z;function f(n){var t=n.components,e=(0,o.Z)(n,s);return(0,c.kt)(p,Object.assign({},a,e,{components:t,mdxType:"MDXLayout"}),(0,c.kt)("h1",{id:"component-page"},"Component Page"))}f.isMDXComponent=!0}}]);
+//# sourceMappingURL=component---src-pages-mobile-components-index-mdx-059e59d0bce0577575f9.js.map
