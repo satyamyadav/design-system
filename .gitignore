@@ -113,3 +113,6 @@ docs/cypress/screenshots
 tsconfig.type.tsbuildinfo
 dist/**/*.tsbuildinfo
 .vscode
+
+*storybook.log
+storybook-static

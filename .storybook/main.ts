@@ -1,83 +1,45 @@
-import type { StorybookConfig } from '@storybook/react-webpack5';
-const path = require('path');
-const autoprefixer = require('autoprefixer');
-const postcssColorModFunction = require('postcss-color-mod-function');
+import type { StorybookConfig } from '@storybook/react-vite';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const cssTokenFiles = [
-  path.resolve(__dirname, '../css/src/variables/index.css'),
-  path.resolve(__dirname, '../css/src/tokens/index.css')
-];
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const config: StorybookConfig = {
-  stories: ['../core/components/**/*.story.@(js|jsx|ts|tsx)', '../core/ai-components/**/*.story.@(js|jsx|ts|tsx)'],
-
+  stories: [
+    '../core/components/**/*.story.@(js|jsx|ts|tsx)', 
+    '../core/ai-components/**/*.story.@(js|jsx|ts|tsx)', 
+    '../stories/**/*.mdx',
+  ],
+  
   addons: [
-    '@storybook/addon-docs',
+    '@chromatic-com/storybook',
+    '@storybook/addon-vitest',
     '@storybook/addon-a11y',
-    {
-      name: 'storybook-css-modules',
-      options: {
-        cssModulesLoaderOptions: {
-          importLoaders: 1,
-          modules: {
-            localIdentName: '[local]', // Use local class names directly
-          },
-        },
-      },
-    },
+    '@storybook/addon-docs',
   ],
 
-  framework: {
-    name: '@storybook/react-webpack5',
-    options: {},
-  },
+  framework: '@storybook/react-vite',
 
-  // Webpack configuration
-  webpackFinal: async (config) => {
-    // Add PostCSS configuration
-    config?.module?.rules?.push({
-      test: /\.css$/,
-      use: [
-        {
-          loader: 'postcss-loader',
-          options: {
-            postcssOptions: {
-              plugins: [
-                autoprefixer,
-                postcssColorModFunction({
-                  importFrom: cssTokenFiles,
-                }),
-              ],
-            },
-          },
-        },
-      ],
-    });
+  async viteFinal(config, options) {
+    if (!config) return config;
 
-    // Configure babel for JSX and TypeScript
-    config.module.rules.push({
-      test: /\.(js|jsx|ts|tsx)$/,
-      exclude: /node_modules/,
-      use: ['babel-loader'], // Uses .babelrc configuration
-    });
-
-    // Add aliases
+    // Add path aliases
+    config.resolve = config.resolve || {};
     config.resolve.alias = {
-      ...config.resolve.alias,
+      ...(config.resolve.alias || {}),
       '@': path.resolve(__dirname, '../core'),
       '@css': path.resolve(__dirname, '../css/src'),
       '@innovaccer/mds-images/ui-states': path.resolve(__dirname, '../mds-images/ui-states'),
     };
 
-    // Add extensions
-    config.resolve.extensions.push('.ts', '.tsx');
+    // Add file extensions (Vite handles .ts and .tsx by default, but we ensure they're included)
+    if (!config.resolve.extensions) {
+      config.resolve.extensions = ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json'];
+    }
 
     return config;
   },
-
-  typescript: {
-    reactDocgen: 'react-docgen-typescript'
-  }
 };
 
 export default config;
